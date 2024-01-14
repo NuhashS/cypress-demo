@@ -30,10 +30,10 @@ describe('Cypress Website Demo Test', () => {
     it('User is able to click on Company and then on "About Cypress" => Success', () =>{
         
         // Hover over "Company" dropdown
-        cy.getTestID('dropdown-company').trigger('mouseover')
+        cy.getBySelector('data-cy','dropdown-company').trigger('mouseover')
         
         // Wait for dropdown to load
-        cy.getTestID('submenu').should('be.visible')
+        cy.getBySelector('data-cy','submenu').should('be.visible')
 
         // Click button
         cy.contains('About Cypress').click()
@@ -45,27 +45,48 @@ describe('Cypress Website Demo Test', () => {
     it('User is able to click on “Install” and then on “npm install cypress” and make sure the copied text is “npm install cypress --save-dev” => Success', () => {
 
         // Find and click the install button
-        cy.getTestID('header-install').click()
+        cy.getBySelector('data-cy','header-install').click()
 
         //Click the button to copy the npm install cypress text
-        cy.getTestID('modal-install-copy').click()
+        cy.getBySelector('data-cy','modal-install-copy').click()
 
         //Check that the text copied is what's expected
         cy.getCopiedText("npm install cypress --save-dev")
     })
 
-    it.only('User is able to click on “Product” and then “visual review” => Success', () =>{
+    it('User is able to click on “Product” and then “visual review” => Success', () =>{
         
-        // Hover over "Company" dropdown
-        cy.getTestID('dropdown-product').trigger('mouseover')
+        // Hover over "Product" dropdown
+        cy.getBySelector('data-cy', 'dropdown-product').trigger('mouseover')
         
         // Wait for dropdown to load
-        cy.getTestID('submenu').should('be.visible')
+        cy.getBySelector('data-cy','submenu').should('be.visible')
 
         // Click button
         cy.contains('Visual Reviews').click()
 
-        //Check if you've been redirected to the about-us page
+        //Check if you've been redirected to the visual review page
         cy.url().should('include', 'visual_reviews')
+    })
+
+    it('User is able to click on “Product” and then “visual review” => Success', () =>{
+        
+        // Hover over "Company" dropdown
+        cy.getBySelector('data-cy','dropdown-product').trigger('mouseover')
+        
+        // Wait for dropdown to load
+        cy.getBySelector('data-cy','submenu').should('be.visible')
+
+        // Click button
+        cy.contains('Smart Orchestration').click()
+
+        //Check if you've been redirected to the Smart Orchestration page
+        cy.url().should('include', 'smart_orchestration')
+
+        // Scroll down to Test Analytics
+        cy.getBySelector('id', "test_analytics").scrollIntoView();
+
+        // Check for border
+        cy.getBySelector('href', '#test_analytics').should('have.css', 'border-color', 'rgb(163, 231, 203)')
     })
 })

@@ -8,8 +8,8 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
-Cypress.Commands.add('getTestID', (selector) => {
-    return cy.get(`[data-cy="${selector}"]`)
+Cypress.Commands.add('getBySelector', (selector, value) => {
+    return cy.get(`[${selector}="${value}"]`)
 })
 
 Cypress.Commands.add('getCopiedText', (selector) => {
