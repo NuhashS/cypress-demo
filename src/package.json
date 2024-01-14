@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cypress": "^13.6.2"
+  },
+  "name": "cypress-demo",
+  "version": "1.0.0",
+  "description": "Demostrative tests for Cypress",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "cypress run"
+  },
+  "author": "Nuhash Sarwar",
+  "license": "ISC"
+}
