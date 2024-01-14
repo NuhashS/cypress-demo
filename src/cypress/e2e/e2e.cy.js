@@ -53,4 +53,19 @@ describe('Cypress Website Demo Test', () => {
         //Check that the text copied is what's expected
         cy.getCopiedText("npm install cypress --save-dev")
     })
+
+    it.only('User is able to click on “Product” and then “visual review” => Success', () =>{
+        
+        // Hover over "Company" dropdown
+        cy.getTestID('dropdown-product').trigger('mouseover')
+        
+        // Wait for dropdown to load
+        cy.getTestID('submenu').should('be.visible')
+
+        // Click button
+        cy.contains('Visual Reviews').click()
+
+        //Check if you've been redirected to the about-us page
+        cy.url().should('include', 'visual_reviews')
+    })
 })
