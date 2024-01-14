@@ -83,7 +83,7 @@ describe('Cypress Website Demo Test', () => {
         // Scroll down to Test Analytics
         cy.getBySelector('id', "test_analytics").scrollIntoView();
 
-        // Check for border
+        // Check for border colour around Test Anayltics
         cy.getBySelector('href', '#test_analytics').should('have.css', 'border-color', 'rgb(163, 231, 203)')
     })
 })
