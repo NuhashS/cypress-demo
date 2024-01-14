@@ -1,5 +1,5 @@
 # Description
-This is a demonstration of the Cypress framework, using the Cypress framework.
+This is a demonstration of the Cypress framework, using the Cypress website as the base.
 
 # Folder Scructure
 

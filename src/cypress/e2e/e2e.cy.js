@@ -43,7 +43,7 @@ describe('Cypress Website Demo Test', () => {
         // Find and click the install button
         cy.getBySelector('data-cy','header-install').click()
 
-        //Click the button to copy the npm install cypress text
+        //Click the modal button within, to copy the 'npm install cypress' text
         cy.getBySelector('data-cy','modal-install-copy').click()
 
         //Check that the text copied is what's expected
@@ -65,9 +65,10 @@ describe('Cypress Website Demo Test', () => {
         cy.url().should('include', 'visual_reviews')
     })
 
-    it('User is able to click on “Product” and then “visual review” => Success', () =>{
+    it('User is able to click on “Product”, then “Smart Orchestration”, then scroll down to \
+        “Test Analytics” and see that the green circle is around “Test Analytics” => Success', () =>{
         
-        // Hover over "Company" dropdown
+        // Hover over "Product" dropdown
         cy.getBySelector('data-cy','dropdown-product').trigger('mouseover')
         
         // Wait for dropdown to load
