@@ -6,9 +6,15 @@
   "version": "1.0.0",
   "description": "Demostrative tests for Cypress",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.0"
+  },
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run --browser chrome",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:electron": "cypress run --browser electron",
+    "test:all": "npm run test:chrome && npm run test:firefox && npm run test:electron"
   },
   "author": "Nuhash Sarwar",
   "license": "ISC"

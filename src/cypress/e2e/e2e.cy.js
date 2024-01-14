@@ -5,11 +5,7 @@ describe('Cypress Website Demo Test', () => {
             return false;
         })
     })
-    /*
-    afterEach(() => {
-        cy.screenshot()
-    })
-    */
+
     it('User scrolls down to check weekly downloads number => Success', () => {
         
         // User action
