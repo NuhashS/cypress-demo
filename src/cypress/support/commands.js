@@ -11,3 +11,11 @@
 Cypress.Commands.add('getTestID', (selector) => {
     return cy.get(`[data-cy="${selector}"]`)
 })
+
+Cypress.Commands.add('getCopiedText', (selector) => {
+    return cy.window().then((win) => {
+        win.navigator.clipboard.readText().then((text) => {
+          expect(text).to.eq(selector);
+        });
+      });
+})

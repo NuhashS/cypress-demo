@@ -5,11 +5,11 @@ describe('Cypress Website Demo Test', () => {
             return false;
         })
     })
-    
+    /*
     afterEach(() => {
         cy.screenshot()
     })
-    
+    */
     it('User scrolls down to check weekly downloads number => Success', () => {
         
         // User action
@@ -40,6 +40,17 @@ describe('Cypress Website Demo Test', () => {
 
         //Check if you've been redirected to the about-us page
         cy.url().should('include', '/about-us')
+    })
 
+    it('User is able to click on “Install” and then on “npm install cypress” and make sure the copied text is “npm install cypress --save-dev” => Success', () => {
+
+        // Find and click the install button
+        cy.getTestID('header-install').click()
+
+        //Click the button to copy the npm install cypress text
+        cy.getTestID('modal-install-copy').click()
+
+        //Check that the text copied is what's expected
+        cy.getCopiedText("npm install cypress --save-dev")
     })
 })
